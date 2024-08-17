@@ -15,6 +15,6 @@ public class pre_and_post {
 		System.out.println("postfijo: devuelve el valor original de ahi lo incrementa.");
 		System.out.println("valor de a: " + a);
 		System.out.println("valor de b: " + b);
+		//no olvidar tener en cuanta las variables y el tipo
 	}
-
 }
