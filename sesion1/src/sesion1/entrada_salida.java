@@ -7,7 +7,7 @@ public class entrada_salida {
 		Scanner myOb = new Scanner(System.in);
 		System.out.println("ingrese su nombre: ");
 		String userNombre = myOb.nextLine();
-		
+		//para que sirve el Scanner
 		System.out.println("ingrese edad: ");
 		int userEdad = myOb.nextInt();
 		System.out.println("usuario es: " + userNombre + " y tiene la edad de: " + userEdad);
