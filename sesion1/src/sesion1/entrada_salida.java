@@ -13,4 +13,3 @@ public class entrada_salida {
 		System.out.println("usuario es: " + userNombre + " y tiene la edad de: " + userEdad);
 	}
 }
-
