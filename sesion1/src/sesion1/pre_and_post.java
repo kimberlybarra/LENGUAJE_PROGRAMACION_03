@@ -2,7 +2,7 @@ package sesion1;
 
 public class pre_and_post {
 	public static void main(String[] args) {
-		int a = 8;
+		int a = 5;
 		int b;
 		
 		b = ++a;
@@ -10,7 +10,7 @@ public class pre_and_post {
 		System.out.println("valor de a: " + a);
 		System.out.println("valor de b: " + b);
 		
-		a = 8;
+		a = 5;
 		b= a++;
 		System.out.println("postfijo: devuelve el valor original de ahi lo incrementa.");
 		System.out.println("valor de a: " + a);
