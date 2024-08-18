@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class area_rectangulo {
 	public static void main(String[] args) {
-		Scanner entrada = new Scanner(System.in);//creamos un objeto nuevo
+		Scanner entrada = new Scanner(System.in);//creamos un objeto
 		System.out.println("ingrese la base: ");
 		int base = entrada.nextInt(); //entrada.nextInt guarda lo que entra el usuario
 		System.out.println("ingrese la altura: ");
