@@ -15,14 +15,21 @@ public class ejercicio5 {
         }
         return cargo;
     }
-	public static void main(String[] args) {
+	
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("ingrese el numero de horas de estacionamiento:");
-        int horas = scanner.nextInt();
+        int horas;   
+        // Validando que las horas ingresadas sean positivas
+        do {
+            System.out.println("ingrese el numero de horas de estacionamiento:");
+            horas = scanner.nextInt();
+            if (horas <= 0) {
+                System.out.println("el numero de horas debe ser positivo, intente de nuevo");
+            }
+        } while (horas <= 0);
         
         double cargo = calcularCargo(horas);        
-        System.out.println("el cargo es: " + cargo +" sole");   
+        System.out.println("El total es: " + cargo + " soles");
         scanner.close();
     }
 }
-
