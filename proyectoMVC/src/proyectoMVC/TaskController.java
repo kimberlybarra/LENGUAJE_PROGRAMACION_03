@@ -1,5 +1,6 @@
 package proyectoMVC;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +42,54 @@ public class TaskController {
 			view.printMessage("la tarea no fue completada \n");
 		}
 	}
+	
+	 public void updateTask(int index, String newName) {
+	        if (index >= 0 && index < tasks.size()) {
+	            Task task = tasks.get(index);
+	            task.updateName(newName);
+	            view.printMessage("La tarea fue actualizada a: " + newName + "\n");
+	        } else {
+	            view.printMessage("Índice de tarea no válido\n");
+	        }
+	    }
+	 
+	 public void deleteTask(int index) {
+		 if (index >= 0 && index < tasks.size()) {
+	         Task task = tasks.remove(index);
+	         view.printMessage("La tarea: " + task.getname() + " fue eliminada\n");
+	        } else {
+	            view.printMessage("Índice de tarea no válido\n");
+	        }
+	    }
+
+	    public void saveTasksToFile(String filename) {
+	        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+	            for (Task task : tasks) {
+	                writer.write(task.getname() + "," + (task.isComplete() ? "1" : "0") + "\n");
+	            }
+	            view.printMessage("Tareas guardadas en el archivo: " + filename + "\n");
+	        } catch (IOException e) {
+	            view.printMessage("Error al guardar tareas: " + e.getMessage() + "\n");
+	        }
+	    }
+
+	    public void loadTasksFromFile(String filename) {
+	        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+	            String line;
+	            while ((line = reader.readLine()) != null) {
+	                String[] parts = line.split(",");
+	                Task task = new Task(parts[0]);
+	                if (parts[1].equals("1")) {
+	                    task.complete();
+	                }
+	                tasks.add(task);
+	            }
+	            view.printMessage("Tareas cargadas desde el archivo: " + filename + "\n");
+	        } catch (IOException e) {
+	            view.printMessage("Error al cargar tareas: " + e.getMessage() + "\n");
+	        }
+	    }
+	 
 	//mostrar las tareas
 	public void displayTask() {
 		view.printTasks(tasks);
